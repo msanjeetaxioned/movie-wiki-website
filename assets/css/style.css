@@ -82,36 +82,46 @@ sub { bottom: -.25em; }
 .cf { *zoom: 1; }
 
 /*for all*/
+* { box-sizing: border-box; }
+
 body {
-  box-sizing: border-box;
-  font-family: sans-serif;
+  background: linear-gradient(90deg, rgba(14,35,49,1) 0%, rgba(37,55,71,1) 50%, rgba(14,30,47,1) 100%); 
+  font-family: 'Signika', sans-serif; 
 }
 
 a { 
   display: inline-block;
+  color: unset;
   text-decoration: none; 
 }
 
-li {
-  display: inline-block;
-  list-style-type: none;
+li { list-style-type: none; }
+
+figure > img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
 /*for wrapper*/
 .wrapper {
-  max-width: 1360px;
-  width: 86%; 
+  max-width: 1733px;
+  width: 90.257%;
   margin: 0 auto;
 }
 /*=================================
   Header styling starts here
 =================================*/
+header { background: rgb(10, 21, 32); }
+header a { margin-left: 1.5%; }
 
-
-
-
-
-
+header img {
+  max-width: 100%;
+  height: auto;
+  padding: 20px 0;
+  display: block;
+}
 /*=================================
   Header styling ends here
 =================================*/  
@@ -119,13 +129,30 @@ li {
 /*=================================
   main styling starts here
 =================================*/
+.upcoming-movies { margin-top: 75px; }
 
+.carousel {
+  overflow: hidden;
+  white-space: nowrap;
+}
 
+.carousel > li {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+}
 
+.carousel > li > * { margin-right: 5%; }
+.carousel > li > *:last-child { margin-right: 0; }
+.carousel > li img { max-height: 620px; }
+.carousel > li > div { flex-basis: 27.5%; }
+.carousel > li > figure { flex-basis: 35%; }
 
-
-
-
+.carousel > li span { 
+  display: block;
+  white-space: normal;
+}
 
 /*=================================
   main styling ends here
