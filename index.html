@@ -7,7 +7,7 @@
  
   <meta charset="utf-8">
 
-  <title>Client</title>
+  <title>Movie Wiki</title>
   
   <!-- 120 word description for SEO purposes goes here. Note: Usage of lang tag. -->
   <!-- <meta name="description" lang="en" content=""> -->
@@ -47,18 +47,140 @@
   <div class="container">
     <!--header section start-->
     <header>
-      
+      <h1>
+        <a>
+          <img src="logo.png" alt="Movie Wiki Logo">
+        </a>
+      </h1>
     </header>
     <!--header section start-->
     <!--main section start-->
     <main>
-
+      <!--Upcoming Movies section start-->
+      <div class="upcoming-movies wrapper">
+        <ul class="carousel">
+          <li class="selected">
+            <div class="left-side">
+              <span>The Matrix Resurrections</span>
+              <span>Directed By: Lana Wachowski</span>
+              <span>Main Stars: Keanu Reeves, Carrie-Anne Moss, Christina Ricci, Jessica Henwick</span>
+            </div>
+            <figure>
+              <img src="https://imdb-api.com/images/original/MV5BMGJkNDJlZWUtOGM1Ny00YjNkLThiM2QtY2ZjMzQxMTIxNWNmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_Ratio0.6699_AL_.jpg" alt="The Matrix Resurrections Image">
+            </figure>
+            <div class="right-side">
+              <span class="release-date">December 24, 2021</span>
+              <span class="runtime">2h 28mins</span>
+              <span class="genres">Action, Sci-Fi</span>
+              <span class="rating">R</span>
+            </div>
+          </li>
+          <li>
+            <div class="left-side">
+              <span>The King's Man</span>
+              <span>Directed By: Matthew Vaughn</span>
+              <span>Main Stars: Ralph Fiennes, Gemma Arterton, Rhys Ifans, Harris Dickinson</span>
+            </div>
+            <figure>
+              <img src="https://imdb-api.com/images/original/MV5BMDEzZDY2ZDktNTlmOS00NThjLThkNTEtMjE5MzI5NWEwZmRjXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_Ratio0.6699_AL_.jpg" alt="The Matrix Resurrections Image">
+            </figure>
+            <div class="right-side">
+              <span class="release-date">December 24, 2021</span>
+              <span class="runtime">2h 11mins</span>
+              <span class="genres">Action, Adventure, Comedy, Crime, Thriller</span>
+              <span class="rating">R</span>
+            </div>
+          </li>
+        </ul>
+        <ul class="carousel-dots">
+          <li class="selected">
+            <a href="#FIXME" title="First">Dot 1</a>
+          </li>
+          <li>
+            <a href="#FIXME" title="Second">Dot 2</a>
+          </li>
+        </ul>
+      </div>
+      <!--Upcoming Movies section end-->
+      <!--Most Popular Movies section start-->
+      <section class="most-popular-movies wrapper">
+        <h2>Most Popular Movies</h2>
+        <div class="sort-options">
+          <p>Sort By</p>
+          <ul class="sort">
+            <li class="selected">
+              <a href="#FIXME" title="Popularity">Popularity</a>
+            </li>
+            <li>
+              <a href="#FIXME" title="Name">Name</a>
+            </li>
+            <li>
+              <a href="#FIXME" title="Year">Year</a>
+            </li>
+            <li>
+              <a href="#FIXME" title="IMDB Rating">IMDB Rating</a>
+            </li>
+          </ul>
+          <ul class="movies-content">
+            <li>
+              <figure>
+                <img src="https://imdb-api.com/images/original/MV5BZGRhYjE2NWUtN2FkNy00NGI3LTkxYWMtMDk4Yjg5ZjI3MWI2XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_Ratio0.6716_AL_.jpg" alt="The Power of the Dog Image">
+              </figure>
+              <div class="info">
+                <span class="title">The Power of the Dog</span>
+                <span class="year">2021</span>
+                <span class="rating">7.0</span>
+              </div>
+            </li>
+            <li>
+              <figure>
+                <img src="https://imdb-api.com/images/original/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_Ratio0.6716_AL_.jpg" alt="Spider-Man: No Way Home Image">
+              </figure>
+              <div class="info">
+                <span class="title">Spider-Man: No Way Home</span>
+                <span class="year">2021</span>
+                <span class="rating">-</span>
+              </div>
+            </li>
+          </ul>
+          <ul class="pagination">
+            <li>
+              <a href="#FIXME" title="Page 1">1</a>
+            </li>
+            <li>
+              <a href="#FIXME" title="Page 2">2</a>
+            </li>
+            <li>
+              <a href="#FIXME" title="Page 3">3</a>
+            </li>
+            <li>
+              <a href="#FIXME" title="Page 4">4</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!--Most Popular Movies section end-->
     </main>
     <!--main section end-->
 
     <!--footer section start-->
-    <footer>      
-
+    <footer>
+      <ul class="social-media-links">
+        <li>
+          <a href="#FIXME" title="Twitter" target="_blank">Twitter</a>
+        </li>
+        <li>
+          <a href="#FIXME" title="Facebook" target="_blank">Facebook</a>
+        </li>
+        <li>
+          <a href="#FIXME" title="Instagram" target="_blank">Instagram</a>
+        </li>
+        <li>
+          <a href="#FIXME" title="Snapchat" target="_blank">Snapchat</a>
+        </li>
+      </ul>
+      <p class="copyright">&copy; <a href="#FIXME" title="Movie Wiki">Movie Wiki</a>. All Rights Reserved.
+      </p>
     </footer>
     <!--footer section end-->
 
