@@ -19,7 +19,6 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 
@@ -130,6 +129,38 @@ header img {
   main styling starts here
 =================================*/
 .upcoming-movies { margin-top: 75px; }
+.carousel-container { 
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-container > .carousel-buttons {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  font-size: 0;
+  transform: translate(0, -50%);
+}
+
+.carousel-container > .carousel-buttons::before {
+  display: inline-block;
+  color: #76766f;
+  font-family: "Font Awesome 5 Free";
+  font-size: 30px;
+  font-weight: 900;
+  transition: color 1s ease-in-out;
+}
+
+.carousel-container > .carousel-buttons:hover::before { 
+  color: #fff;
+  cursor: pointer;
+}
+
+.carousel-container > .carousel-buttons[title="Previous"] { left: 0; }
+.carousel-container > .carousel-buttons[title="Previous"]::before { content: "\f137"; }
+.carousel-container > .carousel-buttons[title="Next"] { right: 0; }
+.carousel-container > .carousel-buttons[title="Next"]::before { content: "\f138"; }
 
 .carousel {
   overflow: hidden;
@@ -143,15 +174,28 @@ header img {
   align-items: center;
 }
 
-.carousel > li > * { margin-right: 5%; }
+.carousel > li > * { margin-right: 3%; }
 .carousel > li > *:last-child { margin-right: 0; }
 .carousel > li img { max-height: 620px; }
-.carousel > li > div { flex-basis: 27.5%; }
-.carousel > li > figure { flex-basis: 35%; }
+.carousel > li > div { flex-basis: 25%; }
+.carousel > li > figure { flex-basis: 34%; }
+.carousel > li > .left-side { margin-left: 5%; }
+.carousel > li > .right-side { margin-right: 5%; }
 
-.carousel > li span { 
+.left-side > span, .right-side > span {
+  margin-bottom: 10px;
   display: block;
+  color: #fff;
+  font-size: 24px;
   white-space: normal;
+}
+
+.left-side > span:last-child, .right-side > span:last-child { margin-bottom: 0; }
+
+.left-side > span > small, .right-side > span > small {
+  display: block;
+  color: #76766f;
+  font-size: 20px;
 }
 
 /*=================================
