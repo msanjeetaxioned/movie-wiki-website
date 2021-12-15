@@ -235,6 +235,7 @@ header img {
 
 /* Section Most Popular Movies CSS Start */
 .most-popular-movies { margin-bottom: 75px; }
+.most-popular-movies.display-none { display: none; }
 
 .most-popular-movies > h2 {
   margin-bottom: 35px;
