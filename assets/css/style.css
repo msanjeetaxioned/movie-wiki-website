@@ -232,6 +232,49 @@ header img {
 
 .carousel-dots > li.selected > span { background: #fff; }
 
+/* Section Most Popular Movies CSS Start */
+.most-popular-movies { margin-bottom: 75px; }
+
+.most-popular-movies > h2 {
+  margin-bottom: 25px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.most-popular-movies-content > * { margin-bottom: 15px; }
+.most-popular-movies-content > *:last-child { margin-bottom: 0; }
+
+.most-popular-movies-content > p {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.sort-options { display: flex; }
+
+.sort-options > li > span {
+  padding: 10px 15px;
+  border-right: 3px solid #fff;
+  display: inline-block;
+  background: rgba(41, 56, 63, 1);
+  color: #76766f;
+}
+
+.sort-options > li:first-child > span { border-left: 3px solid #fff; }
+
+.sort-options > li > span:hover {
+  background: rgba(41, 56, 63, 0.5);
+  color: #fff;
+  cursor: pointer;
+}
+
+.sort-options > li.selected > span {
+  background: rgba(41, 56, 63, 0.5);
+  color: #fff;
+}
+/* Section Most Popular Movies CSS End */
 /*=================================
   main styling ends here
 =================================*/
