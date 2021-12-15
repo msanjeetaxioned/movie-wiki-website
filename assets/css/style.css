@@ -129,6 +129,7 @@ header img {
   main styling starts here
 =================================*/
 .upcoming-movies { margin: 75px auto; }
+.upcoming-movies.display-none { display: none; }
 
 .carousel-container {
   margin-bottom: 15px;
