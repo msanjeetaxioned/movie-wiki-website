@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	let totalPopularMovies = 0;
 	let moviesPerPage = 25;
 	let totalPages = 0;
+	let currentPage = 1;
 
 	let mostPopularMoviesHTML = document.querySelector(".most-popular-movies");
 	let popularMoviesSortOptions = mostPopularMoviesHTML.querySelector(".sort-options");
@@ -54,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 					totalPages = Math.ceil(totalPopularMovies / moviesPerPage);
 					console.log(popularMovies);
 					displayPage(true, popularMoviesPerPage, 1);
+					addEventListenersForPopularMovies();
 				}
 		}
 	}
@@ -221,12 +223,43 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			}, 10);
 	}
 
+	function addEventListenersForPopularMovies() {
+		popularMoviesPagination.innerHTML = "";
+		for(i = 0; i < totalPages; i++) {
+			let pageLi = document.createElement("li");
+			if(i == 0) {
+				pageLi.classList.add("selected");
+			}
+			pageLi.innerHTML = `
+				<span title="Page ${i+1}" data-id="${i+1}">${i+1}</span>
+			`;
+			popularMoviesPagination.append(pageLi);
+		}
+
+		let pageLis = popularMoviesPagination.querySelectorAll("li");
+		for(i = 0; i < totalPages; i++) {
+			let span = pageLis[i].querySelector("span");
+			span.addEventListener("click", function() {
+				let clickedPage = parseInt(this.getAttribute("data-id"));
+				if(clickedPage != currentPage) {
+					pageLis[currentPage-1].classList.remove("selected");
+					pageLis[clickedPage-1].classList.add("selected");
+					currentPage = clickedPage;
+					displayPage(false, popularMoviesPerPage, clickedPage);
+				}
+			});
+		}
+	}
+
 	function displayPage(appStart, ul, number) {
 		ul.innerHTML = "";
 		let start = (number-1) * moviesPerPage, end = number * moviesPerPage;
 
 		for(let i = start; i < end; i++) {
 			let li = document.createElement("li");
+			if(popularMovies[i].imDbRating == "") {
+				popularMovies[i].imDbRating = "Not Released";
+			}
 			li.innerHTML = `
 				<span class="rank">#${i+1}</span>
 				<figure>
