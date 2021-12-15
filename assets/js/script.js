@@ -14,7 +14,18 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	let imgList;
 	let carouselDotsArray;
 
+	let popularMovies = [];
+	let totalPopularMovies = 0;
+	let moviesPerPage = 25;
+	let totalPages = 0;
+
+	let mostPopularMoviesHTML = document.querySelector(".most-popular-movies");
+	let popularMoviesSortOptions = mostPopularMoviesHTML.querySelector(".sort-options");
+	let popularMoviesPerPage = mostPopularMoviesHTML.querySelector(".movies-content");
+	let popularMoviesPagination = mostPopularMoviesHTML.querySelector(".pagination");
+
 	getJSONDataOfUpcomingMovies();
+	getJSONDataOfMostPopularMovies();
 
 	function getJSONDataOfUpcomingMovies() {
 		const xhttp = new XMLHttpRequest();
@@ -23,11 +34,26 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		xhttp.onload = function() {
 				let response = JSON.parse(this.responseText);
 				if(response.errorMessage == "") {
-					console.log(response.items);
 					upcomingMovies = response.items;
 					totalUpcomingMovies = upcomingMovies.length;
 					addJSONDataInCarouselAndDots();
 					addCarouselEventListeners();
+				}
+		}
+	}
+
+	function getJSONDataOfMostPopularMovies() {
+		const xhttp = new XMLHttpRequest();
+		xhttp.open("GET", "assets/json/most-popular.json");
+		xhttp.send();
+		xhttp.onload = function() {
+				let response = JSON.parse(this.responseText);
+				if(response.errorMessage == "") {
+					popularMovies = response.items;
+					totalPopularMovies = popularMovies.length;
+					totalPages = Math.ceil(totalPopularMovies / moviesPerPage);
+					console.log(popularMovies);
+					displayPage(true, popularMoviesPerPage, 1);
 				}
 		}
 	}
@@ -146,7 +172,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			});
 		}
 	}
-
 	
 	function changeDisplayedItem(onNextPrevClick, number) {
 			liList[currentItem].classList.remove("selected");
@@ -194,5 +219,29 @@ document.addEventListener('DOMContentLoaded', function(event) {
 					}
 					horizontalScrollToElement(scrollLayer, destination, duration - 10, callback);
 			}, 10);
+	}
+
+	function displayPage(appStart, ul, number) {
+		ul.innerHTML = "";
+		let start = (number-1) * moviesPerPage, end = number * moviesPerPage;
+
+		for(let i = start; i < end; i++) {
+			let li = document.createElement("li");
+			li.innerHTML = `
+				<span class="rank">#${i+1}</span>
+				<figure>
+					<img src="${popularMovies[i].image}">
+				</figure>
+				<div class="info">
+					<span class="title">${popularMovies[i].title}</span>
+					<span class="year"><small>Year: </small>${popularMovies[i].year}</span>
+					<span class="rating"><small>IMDB Rating: </small>${popularMovies[i].imDbRating}</span>
+				</div>
+			`;
+			ul.append(li);
+		}
+		if(appStart) {
+			mostPopularMoviesHTML.classList.remove("display-none");
+		}
 	}
 });
