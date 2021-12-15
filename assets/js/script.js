@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 				});
 		}
 
+		// Scroll Slides on Mouse Drag Left/Right
 		let startX, endX, diffX, minDiff = 100;
 		ul.addEventListener("mousedown", function(event) {
 				startX = parseInt(event.clientX);
