@@ -179,7 +179,15 @@ header img {
 
 .carousel > li > * { margin-right: 3%; }
 .carousel > li > *:last-child { margin-right: 0; }
-.carousel > li img { max-height: 620px; }
+
+.carousel > li img { 
+  max-height: 620px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 .carousel > li > div { flex-basis: 25%; }
 .carousel > li > figure { flex-basis: 34%; }
 .carousel > li > .left-side { margin-left: 5%; }
