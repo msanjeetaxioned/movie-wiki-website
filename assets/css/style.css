@@ -235,6 +235,7 @@ header img {
 
 /* Section Most Popular Movies CSS Start */
 .most-popular-movies { margin-bottom: 75px; }
+.most-popular-movies.display-none { display: none; }
 
 .most-popular-movies > h2 {
   margin-bottom: 35px;
@@ -281,12 +282,14 @@ header img {
 .movies-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25%;
+  gap: 20px 1.25%;
 }
 
 .movies-content > li {
+  display: flex;
   position: relative;
-  flex-basis: 19%; 
+  flex-basis: 19%;
+  flex-direction: column;
 }
 
 .movies-content > li > .rank {
@@ -305,6 +308,7 @@ header img {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   background: rgba(41, 56, 63, 1);
+  flex-grow: 1;
 }
 
 .info > span {
