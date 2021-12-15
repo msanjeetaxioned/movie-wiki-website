@@ -395,12 +395,4 @@ footer > p > a { transition: color 1s ease-in-out; }
 footer > p > a:hover { color: #fff; }
  /*=================================
   footer styling ends here
-=================================*/ 
-
-/*media query starts*/
-/*media query for 995px starts here*/
-@media only screen and (max-width: 995px) {
-
-
-
-}  
+=================================*/
