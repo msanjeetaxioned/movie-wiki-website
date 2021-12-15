@@ -84,14 +84,14 @@ sub { bottom: -.25em; }
 * { box-sizing: border-box; }
 
 body {
-  background: linear-gradient(90deg, rgba(14,35,49,1) 0%, rgba(37,55,71,1) 50%, rgba(14,30,47,1) 100%); 
-  font-family: 'Signika', sans-serif; 
+  background: rgba(14,35,49,1);
+  font-family: 'Signika', sans-serif;
 }
 
 a { 
   display: inline-block;
   color: unset;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 li { list-style-type: none; }
@@ -129,6 +129,7 @@ header img {
   main styling starts here
 =================================*/
 .upcoming-movies { margin: 75px auto; }
+.upcoming-movies.display-none { display: none; }
 
 .carousel-container {
   margin-bottom: 15px;
