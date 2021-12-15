@@ -236,14 +236,14 @@ header img {
 .most-popular-movies { margin-bottom: 75px; }
 
 .most-popular-movies > h2 {
-  margin-bottom: 25px;
+  margin-bottom: 35px;
   color: #fff;
   font-size: 32px;
   font-weight: bold;
   letter-spacing: 2px;
 }
 
-.most-popular-movies-content > * { margin-bottom: 15px; }
+.most-popular-movies-content > * { margin-bottom: 25px; }
 .most-popular-movies-content > *:last-child { margin-bottom: 0; }
 
 .most-popular-movies-content > p {
@@ -273,6 +273,49 @@ header img {
 .sort-options > li.selected > span {
   background: rgba(41, 56, 63, 0.5);
   color: #fff;
+}
+
+.movies-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25%;
+}
+
+.movies-content > li {
+  position: relative;
+  flex-basis: 19%; 
+}
+
+.movies-content > li > .rank {
+  background: rgba(41, 56, 63, 0.7);
+  padding: 10px 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.movies-content > li > .info {
+  padding: 15px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: rgba(41, 56, 63, 1);
+}
+
+.info > span {
+  margin-bottom: 5px;
+  display: block;
+  color: #fff;
+  font-size: 16px;
+}
+
+.movies-content .info > span:last-child { margin-bottom: 0; }
+
+.info > span > small {
+  color: #76766f;
+  font-size: 14px;
 }
 /* Section Most Popular Movies CSS End */
 /*=================================
