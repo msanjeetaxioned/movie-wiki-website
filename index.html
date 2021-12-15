@@ -29,6 +29,9 @@
   <!-- Place favicon.ico in the root directory: mathiasbynens.be/notes/touch-icons -->
   <link rel="shortcut icon" href="favicon.ico" />
 
+  <!-- Font = Signika -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Signika"/>
+
   <!--font-awesome link for icons-->
   <link rel="stylesheet" href="assets/css/fontawesome/css/all.min.css">
 
@@ -58,46 +61,50 @@
     <main>
       <!--Upcoming Movies section start-->
       <div class="upcoming-movies wrapper">
-        <ul class="carousel">
-          <li class="selected">
-            <div class="left-side">
-              <span>The Matrix Resurrections</span>
-              <span>Directed By: Lana Wachowski</span>
-              <span>Main Stars: Keanu Reeves, Carrie-Anne Moss, Christina Ricci, Jessica Henwick</span>
-            </div>
-            <figure>
-              <img src="https://imdb-api.com/images/original/MV5BMGJkNDJlZWUtOGM1Ny00YjNkLThiM2QtY2ZjMzQxMTIxNWNmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_Ratio0.6699_AL_.jpg" alt="The Matrix Resurrections Image">
-            </figure>
-            <div class="right-side">
-              <span class="release-date">December 24, 2021</span>
-              <span class="runtime">2h 28mins</span>
-              <span class="genres">Action, Sci-Fi</span>
-              <span class="rating">R</span>
-            </div>
-          </li>
-          <li>
-            <div class="left-side">
-              <span>The King's Man</span>
-              <span>Directed By: Matthew Vaughn</span>
-              <span>Main Stars: Ralph Fiennes, Gemma Arterton, Rhys Ifans, Harris Dickinson</span>
-            </div>
-            <figure>
-              <img src="https://imdb-api.com/images/original/MV5BMDEzZDY2ZDktNTlmOS00NThjLThkNTEtMjE5MzI5NWEwZmRjXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_Ratio0.6699_AL_.jpg" alt="The Matrix Resurrections Image">
-            </figure>
-            <div class="right-side">
-              <span class="release-date">December 24, 2021</span>
-              <span class="runtime">2h 11mins</span>
-              <span class="genres">Action, Adventure, Comedy, Crime, Thriller</span>
-              <span class="rating">R</span>
-            </div>
-          </li>
-        </ul>
+        <div class="carousel-container">
+          <span title="Previous" class="carousel-buttons">Previous</span>
+          <ul class="carousel">
+            <li class="selected">
+              <div class="left-side">
+                <span>The Matrix Resurrections</span>
+                <span><small>Directed By: </small>Lana Wachowski</span>
+                <span><small>Main Stars: </small>Keanu Reeves, Carrie-Anne Moss, Christina Ricci, Jessica Henwick</span>
+              </div>
+              <figure>
+                <img src="https://imdb-api.com/images/original/MV5BMGJkNDJlZWUtOGM1Ny00YjNkLThiM2QtY2ZjMzQxMTIxNWNmXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_Ratio0.6699_AL_.jpg" alt="The Matrix Resurrections Image">
+              </figure>
+              <div class="right-side">
+                <span class="release-date">December 24, 2021</span>
+                <span class="runtime">2h 28mins</span>
+                <span class="genres">Action, Sci-Fi</span>
+                <span class="rating">R</span>
+              </div>
+            </li>
+            <li>
+              <div class="left-side">
+                <span>The King's Man</span>
+                <span><small>Directed By: </small>Matthew Vaughn</span>
+                <span><small>Main Stars: </small>Ralph Fiennes, Gemma Arterton, Rhys Ifans, Harris Dickinson</span>
+              </div>
+              <figure>
+                <img src="https://imdb-api.com/images/original/MV5BMDEzZDY2ZDktNTlmOS00NThjLThkNTEtMjE5MzI5NWEwZmRjXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_Ratio0.6699_AL_.jpg" alt="The Matrix Resurrections Image">
+              </figure>
+              <div class="right-side">
+                <span class="release-date">December 24, 2021</span>
+                <span class="runtime">2h 11mins</span>
+                <span class="genres">Action, Adventure, Comedy, Crime, Thriller</span>
+                <span class="rating">R</span>
+              </div>
+            </li>
+          </ul>
+          <span title="Next" class="carousel-buttons">Next</span>
+        </div>
         <ul class="carousel-dots">
           <li class="selected">
-            <a href="#FIXME" title="First">Dot 1</a>
+            <span title="First">Dot 1</span>
           </li>
           <li>
-            <a href="#FIXME" title="Second">Dot 2</a>
+            <span title="Second">Dot 2</span>
           </li>
         </ul>
       </div>
