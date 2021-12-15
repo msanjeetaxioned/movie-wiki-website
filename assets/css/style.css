@@ -352,13 +352,47 @@ header img {
 /*=================================
   footer styling starts here
 =================================*/ 
+footer { 
+  padding: 25px 1.5%;
+  background: rgb(10, 21, 32); 
+}
 
+.social-media-links {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
 
+.social-media-links > li { margin-right: 20px; }
+.social-media-links > li:last-child { margin-right: 0; }
 
+.social-media-links > li > a {
+  display: inline-block;
+  font-size: 0;
+}
 
+.social-media-links > li > a::before {
+  color: #76766f;
+  font-family: "Font Awesome 5 Brands";
+  font-size: 24px;
+  font-weight: 900;
+  transition: color 1s ease-in-out;
+}
 
+.social-media-links > li > a:hover::before { color: #fff; }
+.social-media-links > li > a[title="Twitter"]::before { content: "\f099"; }
+.social-media-links > li > a[title="Facebook"]::before { content: "\f39e"; }
+.social-media-links > li > a[title="Instagram"]::before { content: "\f16d"; }
+.social-media-links > li > a[title="Snapchat"]::before { content: "\f2ab"; }
 
+footer > p {
+  color: #76766f;
+  font-size: 14px;
+  text-align: center;
+}
 
+footer > p > a { transition: color 1s ease-in-out; }
+footer > p > a:hover { color: #fff; }
  /*=================================
   footer styling ends here
 =================================*/ 
