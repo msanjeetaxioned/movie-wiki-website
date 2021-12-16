@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	let moviesPerPage = 25;
 	let totalPages = 0;
 	let currentPage = 1;
+	let sortOption = 1;
 
 	let mostPopularMoviesHTML = document.querySelector(".most-popular-movies");
 	let popularMoviesSortOptions = mostPopularMoviesHTML.querySelector(".sort-options");
@@ -62,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
 					displayPage(true, popularMoviesPerPage, 1);
 					addEventListenersForPopularMovies();
 					sortByName(popularMovies, popularMoviesByName);
-					sortByNumber(popularMovies, popularMoviesByYear, "year", false);
-					sortByNumber(popularMovies, popularMoviesByIMDBRating, "imDbRating", false);
+					sortByNumber(popularMovies, popularMoviesByYear, true, false);
+					sortByNumber(popularMovies, popularMoviesByIMDBRating, false, false);
 				}
 		}
 	}
@@ -257,6 +258,36 @@ document.addEventListener('DOMContentLoaded', function(event) {
 				}
 			});
 		}
+
+		let sortOptionsLis = popularMoviesSortOptions.querySelectorAll("li");
+		for(let li of sortOptionsLis) {
+			let span = li.querySelector("span");
+			span.addEventListener("click", function() {
+				let clickedSort = parseInt(this.getAttribute("data-id"));
+				if(clickedSort != sortOption) {
+					sortOptionsLis[sortOption-1].classList.remove("selected");
+					sortOptionsLis[clickedSort-1].classList.add("selected");
+					sortOption = clickedSort;
+
+					switch(sortOption) {
+						case 1: 
+							popularMovies = popularMoviesByPopularity;
+							break;
+						case 2: 
+							popularMovies = popularMoviesByName;
+							break;
+						case 3: 
+							popularMovies = popularMoviesByYear;
+							break;
+						case 4: 
+							popularMovies = popularMoviesByIMDBRating;
+							break;
+					}
+					let pageLiSpan = pageLis[0].querySelector("span");
+					pageLiSpan.click();
+				}
+			});
+		}
 	}
 
 	function displayPage(appStart, ul, number) {
@@ -304,30 +335,45 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	}
 
 	// Sort for By Year & IMDB Rating. Last Para takes which sort order.
-	function sortByNumber(array, newSortedArray, sortCriteria, ascendingOrder) {
+	function sortByNumber(array, newSortedArray, year, ascendingOrder) {
 		if(newSortedArray.length == 0) {
 			for(let i = 0; i < array.length; i++) {
 				newSortedArray[i] = array[i];
 			}
 		}
 		newSortedArray.sort(function(a, b) {
+			if(year) {
+				sortCriteria = "year";
+			}
+			else { 
+				sortCriteria = "imDbRating";
+			}
 			if(a[sortCriteria] == "Not Released" || a[sortCriteria] == "-" || a[sortCriteria] == "") {
 				a[sortCriteria] = 0;
 			}
 			if(b[sortCriteria] == "Not Released" || b[sortCriteria] == "-" || b[sortCriteria] == "") {
 				b[sortCriteria] = 0;
 			}
-			if(parseInt(a[sortCriteria]) > parseInt(b[sortCriteria])) {
-				if(b[sortCriteria] == 0) {
+			let x, y;
+			if(year) {
+				x = parseInt(a[sortCriteria]);
+				y = parseInt(b[sortCriteria]);
+			}
+			else {
+				x = parseFloat(a[sortCriteria]);
+				y = parseFloat(b[sortCriteria]);
+			}
+			if(x > y) {
+				if(y == 0) {
 					b[sortCriteria] = "Not Released";
 				}
 				return 1;
 			}
 			else {
-				if(a[sortCriteria] == 0) {
+				if(x == 0) {
 					a[sortCriteria] = "Not Released";
 				}
-				if(b[sortCriteria] == 0) {
+				if(y == 0) {
 					b[sortCriteria] = "Not Released";
 				}
 				return -1;
