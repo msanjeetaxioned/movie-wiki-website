@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	function sortByName(array, newSortedArray) {
 		if(newSortedArray.length == 0) {
 			for(let i = 0; i < array.length; i++) {
-				newSortedArray[i] = popularMovies[i];
+				newSortedArray[i] = array[i];
 			}
 		}
 		newSortedArray.sort(function(a, b) {
