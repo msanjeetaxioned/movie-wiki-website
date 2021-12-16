@@ -455,6 +455,131 @@ header img {
 
 .opacity-low { opacity: 0.3; }
 /* Modal CSS End */
+
+/* Movie Details Page Start */
+.search-and-results { margin-top: 75px; }
+
+.search-and-results form {
+  display: flex;
+}
+
+.search-and-results form input[type="search"]{
+  width: 700px;
+  padding: 10px 15px;
+  border: 2px solid #76766f;
+  display: block;
+  background: rgba(14,35,49,1);
+  color: #76766f;
+  font-size: 16px;
+}
+
+.search-and-results .error-message {
+  margin-top: 5px;
+  display: block;
+  color: rgba(255, 0, 0, 1);
+  font-size: 16px;
+}
+
+.search-and-results .error-message.display-none { display: none; }
+
+.search-button-div {
+  margin-left: 10px;
+  text-align: center; 
+}
+
+.search-button-div > button[title="Search"] {
+  padding: 10px 15px;
+  border: unset;
+  border-radius: 5px;
+  display: inline-block;
+  background: #76766f;
+  color: rgba(14,35,49,1);
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 1s ease-in-out;
+}
+
+.search-button-div > button[title="Search"]:hover { background: #fff; }
+
+.search-results-div { margin-top: 15px; }
+.search-results-div.display-none { display: none; }
+
+.search-results-div > h3 {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.search-results span {
+  margin-bottom: 10px;
+  display: inline-block;
+  color: #76766f;
+  font-size: 14px;
+  text-decoration: underline;
+  transition: color 1s ease-in-out;
+}
+
+.search-results span:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+.movie-details { 
+  margin-top: 75px;
+  margin-bottom: 75px;
+  text-align: center;
+}
+
+.movie-details.display-none { display: none; }
+
+.movie-details > h3 {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.movie-details > span {
+  margin-bottom: 10px;
+  display: block;
+  color: #fff;
+  font-size: 16px;
+}
+
+.movie-details > span:last-child { margin-bottom: 0; }
+
+.movie-details > span > small {
+  color: #76766f;
+  font-size: 14px;
+}
+
+.movie-details > figure { margin-bottom: 20px; }
+
+.movie-details img {
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.movie-details > h4 {
+  margin-bottom: 10px;
+  color: #76766f;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.actors li { margin-bottom: 10px; }
+
+.actors p {
+  color: #76766f;
+  font-size: 16px;
+}
+
+.actors p > span {
+  color: #fff;
+}
+/* Movie Details Page End */
+
 /*=================================
   main styling ends here
 =================================*/
