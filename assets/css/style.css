@@ -369,7 +369,7 @@ header img {
   left: 0;
 }
 
-/* #modal.display-none { display: none; } */
+#modal.display-none { display: none; }
 
 #modal > .modal-container {
   max-width: 1000px;
