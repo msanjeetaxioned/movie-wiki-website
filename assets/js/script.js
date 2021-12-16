@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
 					displayPage(true, popularMoviesPerPage, 1);
 					addEventListenersForPopularMovies();
 					sortByName(popularMovies, popularMoviesByName);
+					sortByNumber(popularMovies, popularMoviesByYear, "year", false);
+					sortByNumber(popularMovies, popularMoviesByIMDBRating, "imDbRating", false);
 				}
 		}
 	}
@@ -299,5 +301,41 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			}
 		});
 		console.log(popularMoviesByName);
+	}
+
+	// Sort for By Year & IMDB Rating. Last Para takes which sort order.
+	function sortByNumber(array, newSortedArray, sortCriteria, ascendingOrder) {
+		if(newSortedArray.length == 0) {
+			for(let i = 0; i < array.length; i++) {
+				newSortedArray[i] = array[i];
+			}
+		}
+		newSortedArray.sort(function(a, b) {
+			if(a[sortCriteria] == "Not Released" || a[sortCriteria] == "-" || a[sortCriteria] == "") {
+				a[sortCriteria] = 0;
+			}
+			if(b[sortCriteria] == "Not Released" || b[sortCriteria] == "-" || b[sortCriteria] == "") {
+				b[sortCriteria] = 0;
+			}
+			if(parseInt(a[sortCriteria]) > parseInt(b[sortCriteria])) {
+				if(b[sortCriteria] == 0) {
+					b[sortCriteria] = "Not Released";
+				}
+				return 1;
+			}
+			else {
+				if(a[sortCriteria] == 0) {
+					a[sortCriteria] = "Not Released";
+				}
+				if(b[sortCriteria] == 0) {
+					b[sortCriteria] = "Not Released";
+				}
+				return -1;
+			}
+		});
+		if(!ascendingOrder) {
+			newSortedArray.reverse();
+		}
+		console.log(newSortedArray);
 	}
 });
