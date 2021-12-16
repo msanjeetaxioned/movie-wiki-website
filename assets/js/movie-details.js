@@ -1,15 +1,37 @@
 document.addEventListener('DOMContentLoaded', function(event) {
     let movieId;
     let urlPathForSearchByID = "https://imdb-api.com/en/API/Title/k_cjzbh809/";
+    let urlPathForSearchByMovieName = "https://imdb-api.com/en/API/SearchMovie/k_cjzbh809/";
     let movieData;
+    let errorMessages = ["Enter Movie Name"];
+    let searchResults = [];
 
     let main = document.querySelector("main");
     let movieDetails = main.querySelector(".movie-details");
+    let searchAndResults = main.querySelector(".search-and-results");
+    let form = searchAndResults.querySelector("form");
+    let inputSearch = form["movie-search"];
+    let errorMessageHTML = searchAndResults.querySelector(".error-message");
+    let searchResultsDiv = searchAndResults.querySelector(".search-results-div");
+    let searchResultsHTML = searchAndResults.querySelector(".search-results");
 
     if(sessionStorage.getItem("movie-id")) {
         movieId = sessionStorage.getItem("movie-id");
-        getMovieDataAndDisplayIt()
+        getMovieDataAndDisplayIt();
     }
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        let searchValue = inputSearch.value;
+        if(searchValue == "") {
+            errorMessageHTML.innerText = errorMessages[0];
+            errorMessageHTML.classList.remove("display-none");
+        }
+        else {
+            errorMessageHTML.classList.add("display-none");
+            getSearchResultsAndDisplayThem(searchValue);
+        }
+    });
 
     function getMovieDataAndDisplayIt() {
         const xhttp = new XMLHttpRequest();
@@ -55,5 +77,34 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 movieDetails.classList.remove("display-none");
             }
 		}
+    }
+
+    function getSearchResultsAndDisplayThem(searchValue) {
+        const xhttp = new XMLHttpRequest();
+		xhttp.open("GET", urlPathForSearchByMovieName+searchValue);
+		xhttp.send();
+		xhttp.onload = function() {
+            let response = JSON.parse(this.responseText);
+            if(response.errorMessage == "") {
+                searchResults = response.results;
+            }
+            searchResultsHTML.innerHTML = "";
+            
+            for(let i = 0; i < searchResults.length; i++) {
+                let li = document.createElement("li");
+                li.innerHTML = `
+                    <span title="${searchResults[i].title}" data-id="${i+1}">${searchResults[i].title} ${searchResults[i].description}</span>
+                `;
+                searchResultsHTML.append(li);
+                let span = li.querySelector("span");
+                span.addEventListener("click", function() {
+                    let id = parseInt(this.getAttribute("data-id"));
+                    movieId = searchResults[id-1].id;
+                    getMovieDataAndDisplayIt();
+                });
+            }
+
+            searchResultsDiv.classList.remove("display-none");
+        }
     }
 });
