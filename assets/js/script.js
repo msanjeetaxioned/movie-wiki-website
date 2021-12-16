@@ -58,13 +58,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		xhttp.open("GET", "assets/json/upcoming.json");
 		xhttp.send();
 		xhttp.onload = function() {
-				let response = JSON.parse(this.responseText);
-				if(response.errorMessage == "") {
-					upcomingMovies = response.items;
-					totalUpcomingMovies = upcomingMovies.length;
-					addJSONDataInCarouselAndDots();
-					addCarouselEventListeners();
-				}
+			let response = JSON.parse(this.responseText);
+			if(response.errorMessage == "") {
+				upcomingMovies = response.items;
+				totalUpcomingMovies = upcomingMovies.length;
+				addJSONDataInCarouselAndDots();
+				addCarouselEventListeners();
+			}
 		}
 	}
 
@@ -73,19 +73,19 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		xhttp.open("GET", "assets/json/most-popular.json");
 		xhttp.send();
 		xhttp.onload = function() {
-				let response = JSON.parse(this.responseText);
-				if(response.errorMessage == "") {
-					popularMoviesByPopularity = response.items;
-					popularMovies = popularMoviesByPopularity;
-					totalPopularMovies = popularMovies.length;
-					totalPages = Math.ceil(totalPopularMovies / moviesPerPage);
-					console.log(popularMovies);
-					displayPage(true, popularMoviesPerPage, 1);
-					addEventListenersForPopularMovies();
-					sortByName(popularMovies, popularMoviesByName);
-					sortByNumber(popularMovies, popularMoviesByYear, true, false);
-					sortByNumber(popularMovies, popularMoviesByIMDBRating, false, false);
-				}
+			let response = JSON.parse(this.responseText);
+			if(response.errorMessage == "") {
+				popularMoviesByPopularity = response.items;
+				popularMovies = popularMoviesByPopularity;
+				totalPopularMovies = popularMovies.length;
+				totalPages = Math.ceil(totalPopularMovies / moviesPerPage);
+				console.log(popularMovies);
+				displayPage(true, popularMoviesPerPage, 1);
+				addEventListenersForPopularMovies();
+				sortByName(popularMovies, popularMoviesByName);
+				sortByNumber(popularMovies, popularMoviesByYear, true, false);
+				sortByNumber(popularMovies, popularMoviesByIMDBRating, false, false);
+			}
 		}
 	}
 
@@ -145,55 +145,55 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 		// Remove default drag of img behaviour
 		for(let img of imgList) {
-				img.addEventListener("dragstart", function(event) {
-						event.preventDefault();
-				});
+			img.addEventListener("dragstart", function(event) {
+				event.preventDefault();
+			});
 		}
 
 		// Scroll Slides on Mouse Drag Left/Right
 		let startX, endX, diffX, minDiff = 100;
 		ul.addEventListener("mousedown", function(event) {
-				startX = parseInt(event.clientX);
+			startX = parseInt(event.clientX);
 		});
 
 		ul.addEventListener("mouseup", function(event) {
-				endX = parseInt(event.clientX);
-				diffX = Math.abs(endX-startX);
-				if(diffX >= minDiff) {
-						if(endX > startX) {
-								changeDisplayedItem(true, -1);
-						}
-						else {
-								changeDisplayedItem(true, 1);
-						}
+			endX = parseInt(event.clientX);
+			diffX = Math.abs(endX-startX);
+			if(diffX >= minDiff) {
+				if(endX > startX) {
+					changeDisplayedItem(true, -1);
 				}
+				else {
+					changeDisplayedItem(true, 1);
+				}
+			}
 		});
 
 		// Handle Browzer Resizing
 		let timeout;
 		window.addEventListener("resize", function(event) {
-				clearTimeout(timeout);
-				timeout = setTimeout(function() {
-						ul.scrollLeft = liList[currentItem].offsetLeft;
-						console.log("Resized");
-				}, 300);
+			clearTimeout(timeout);
+			timeout = setTimeout(function() {
+				ul.scrollLeft = liList[currentItem].offsetLeft;
+				console.log("Resized");
+			}, 300);
 		});
 
 		document.addEventListener("keydown", function(event) {
-				if(event.key === "ArrowLeft") {
-						changeDisplayedItem(true, -1);
-				}
-				else if(event.key === "ArrowRight") {
-						changeDisplayedItem(true, 1);
-				}
+			if(event.key === "ArrowLeft") {
+				changeDisplayedItem(true, -1);
+			}
+			else if(event.key === "ArrowRight") {
+				changeDisplayedItem(true, 1);
+			}
 		});
 
 		previousButton.addEventListener("click", function() {
-				changeDisplayedItem(true, -1);
+			changeDisplayedItem(true, -1);
 		});
 
 		nextButton.addEventListener("click", function() {
-				changeDisplayedItem(true, 1);
+			changeDisplayedItem(true, 1);
 		});
 
 		for(let carouselDot of carouselDotsArray) {
@@ -208,22 +208,22 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			liList[currentItem].classList.remove("selected");
 			carouselDotsArray[currentItem-1].classList.remove("selected");
 			if(onNextPrevClick) {
-					if(currentItem == 1 && number == -1) {
-							currentItem = totalUpcomingMovies;
-							horizontalScrollToElement(ul, liList[0].offsetLeft, 400, true);
-					}
-					else if((currentItem == totalUpcomingMovies) && (number == 1)) {
-							currentItem = 1;
-							horizontalScrollToElement(ul, liList[liList.length-1].offsetLeft, 400, true);
-					}
-					else {
-							currentItem = currentItem + number;
-							horizontalScrollToElement(ul, liList[currentItem].offsetLeft, 400);
-					}
+				if(currentItem == 1 && number == -1) {
+					currentItem = totalUpcomingMovies;
+					horizontalScrollToElement(ul, liList[0].offsetLeft, 400, true);
+				}
+				else if((currentItem == totalUpcomingMovies) && (number == 1)) {
+					currentItem = 1;
+					horizontalScrollToElement(ul, liList[liList.length-1].offsetLeft, 400, true);
+				}
+				else {
+					currentItem = currentItem + number;
+					horizontalScrollToElement(ul, liList[currentItem].offsetLeft, 400);
+				}
 			}
 			else {
-					currentItem = number;
-					horizontalScrollToElement(ul, liList[currentItem].offsetLeft, 400);
+				currentItem = number;
+				horizontalScrollToElement(ul, liList[currentItem].offsetLeft, 400);
 			}
 			liList[currentItem].classList.add("selected");
 			carouselDotsArray[currentItem-1].classList.add("selected");
@@ -231,24 +231,24 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 	function horizontalScrollToElement(scrollLayer, destination, duration, callback) {
 			if (duration <= 0) {
-					if(callback) {
-							ul.scrollLeft = liList[currentItem].offsetLeft;
-					}
-					return;
+				if(callback) {
+						ul.scrollLeft = liList[currentItem].offsetLeft;
+				}
+				return;
 			}
 			const difference = destination - scrollLayer.scrollLeft;
 			const perTick = (difference / duration) * 10;
 	
 			let timeout = setTimeout(function() {
-					scrollLayer.scrollLeft = scrollLayer.scrollLeft + perTick;
-					if (scrollLayer.scrollLeft === destination) {
-							clearTimeout(timeout);
-							if(callback) {
-									ul.scrollLeft = liList[currentItem].offsetLeft;
-							}
-							return;
-					}
-					horizontalScrollToElement(scrollLayer, destination, duration - 10, callback);
+				scrollLayer.scrollLeft = scrollLayer.scrollLeft + perTick;
+				if (scrollLayer.scrollLeft === destination) {
+						clearTimeout(timeout);
+						if(callback) {
+								ul.scrollLeft = liList[currentItem].offsetLeft;
+						}
+						return;
+				}
+				horizontalScrollToElement(scrollLayer, destination, duration - 10, callback);
 			}, 10);
 	}
 
@@ -303,13 +303,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
 							popularMovies = popularMoviesByIMDBRating;
 							break;
 					}
-					let pageLiSpan = pageLis[0].querySelector("span");
-					pageLiSpan.click();
+					pageLis[currentPage-1].classList.remove("selected");
+					pageLis[0].classList.add("selected");
+					currentPage = 1;
+					displayPage(false, popularMoviesPerPage, currentPage);
 				}
 			});
 		}
 	}
 
+	// Displays A Page of Movies: 1st Para checks if Called for first time, 2nd Para is the list container, 3rd is Page num.
 	function displayPage(appStart, ul, number) {
 		ul.innerHTML = "";
 		let start = (number-1) * moviesPerPage, end = number * moviesPerPage;
