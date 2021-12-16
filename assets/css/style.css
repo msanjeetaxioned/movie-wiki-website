@@ -300,6 +300,8 @@ header img {
   flex-direction: column;
 }
 
+.movies-content > li:hover { cursor: pointer; }
+
 .movies-content > li > .rank {
   background: rgba(41, 56, 63, 0.7);
   padding: 10px 5px;
