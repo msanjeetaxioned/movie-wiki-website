@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	let totalUpcomingMovies = 0;
 	let currentItem = 1;
 
+	let body = document.body;
 	let upcomingMoviesHTML = document.querySelector(".upcoming-movies");
 	let previousButton = upcomingMoviesHTML.querySelectorAll(".carousel-buttons")[0];
 	let nextButton = upcomingMoviesHTML.querySelectorAll(".carousel-buttons")[1];
@@ -29,6 +30,17 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	let popularMoviesSortOptions = mostPopularMoviesHTML.querySelector(".sort-options");
 	let popularMoviesPerPage = mostPopularMoviesHTML.querySelector(".movies-content");
 	let popularMoviesPagination = mostPopularMoviesHTML.querySelector(".pagination");
+
+	let modal = body.querySelector("#modal");
+	let header = body.querySelector("header");
+	let main = body.querySelector("main");
+	let footer = body.querySelector("footer");
+	
+	let modalCloseButton = modal.querySelector(".close-button");
+
+	modalCloseButton.addEventListener("click", function() {
+		displayOrHideModal(false);
+	});
 
 	getJSONDataOfUpcomingMovies();
 	getJSONDataOfMostPopularMovies();
@@ -299,6 +311,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			if(popularMovies[i].imDbRating == "") {
 				popularMovies[i].imDbRating = "Not Released";
 			}
+			li.addEventListener("click", function() {
+				displayOrHideModal(true);
+			});
 			li.innerHTML = `
 				<span class="rank">#${i+1}</span>
 				<figure>
@@ -383,5 +398,20 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			newSortedArray.reverse();
 		}
 		console.log(newSortedArray);
+	}
+
+	function displayOrHideModal(value) {
+		if(value) {
+			modal.classList.remove("display-none");
+			header.classList.add("opacity-low");
+			main.classList.add("opacity-low");
+			footer.classList.add("opacity-low");
+		}
+		else {
+			modal.classList.add("display-none");
+			header.classList.remove("opacity-low");
+			main.classList.remove("opacity-low");
+			footer.classList.remove("opacity-low");
+		}
 	}
 });
