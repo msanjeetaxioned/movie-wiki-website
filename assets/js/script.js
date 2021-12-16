@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 				popularMovies[i].imDbRating = "Not Released";
 			}
 			li.addEventListener("click", function() {
-				displayOrHideModal(true);
+				displayOrHideModal(true, i+1);
 			});
 			li.innerHTML = `
 				<span class="rank">#${i+1}</span>
@@ -400,8 +400,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		console.log(newSortedArray);
 	}
 
-	function displayOrHideModal(value) {
+	function displayOrHideModal(value, id) {
 		if(value) {
+			changeModalContent(id);
 			modal.classList.remove("display-none");
 			header.classList.add("opacity-low");
 			main.classList.add("opacity-low");
@@ -413,5 +414,23 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			main.classList.remove("opacity-low");
 			footer.classList.remove("opacity-low");
 		}
+	}
+
+	function changeModalContent(id) {
+		let data = popularMovies[id-1];
+		let modalContent = modal.querySelector(".modal-content");
+
+		modalContent.innerHTML = "";
+		modalContent.innerHTML = `
+			<span class="rank"><small>Popularity: </small>#${data.rank}</span>
+			<figure>
+				<img src="${data.image}" alt="${data.title} Image">
+			</figure>
+			<span class="title">${data.title}</span>
+			<span class="year"><small>Year: </small>${data.year}</span>
+			<span class="year"><small>Crew: </small>${data.crew}</span>
+			<span class="imdb-rating"><small>IMDB Rating: </small>${data.imDbRating}</span>
+			<span class="imdb-rating-count"><small>IMDB Rating Count: </small>${data.imDbRatingCount}</span>
+		`;
 	}
 });
