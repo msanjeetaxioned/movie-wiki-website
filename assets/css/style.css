@@ -473,6 +473,7 @@ header img {
 
 .search-and-results form input[type="search"]:focus {
   border: 2px solid #fff;
+  background: rgba(14,35,49,1);
   color: #fff;
   box-shadow: none;
   outline-style: none;
@@ -529,7 +530,8 @@ header img {
   cursor: pointer;
 }
 
-.movie-details { 
+.movie-details {
+  max-width: 1000px;
   margin-top: 75px;
   margin-bottom: 75px;
   text-align: center;
