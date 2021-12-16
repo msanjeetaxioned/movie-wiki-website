@@ -458,19 +458,24 @@ header img {
 
 /* Movie Details Page Start */
 .search-and-results { margin-top: 75px; }
+.search-and-results form { display: flex; }
 
-.search-and-results form {
-  display: flex;
-}
-
-.search-and-results form input[type="search"]{
+.search-and-results form input[type="search"] {
   width: 700px;
   padding: 10px 15px;
+  border: unset;
   border: 2px solid #76766f;
   display: block;
   background: rgba(14,35,49,1);
   color: #76766f;
   font-size: 16px;
+}
+
+.search-and-results form input[type="search"]:focus {
+  border: 2px solid #fff;
+  color: #fff;
+  box-shadow: none;
+  outline-style: none;
 }
 
 .search-and-results .error-message {
@@ -500,7 +505,6 @@ header img {
 }
 
 .search-button-div > button[title="Search"]:hover { background: #fff; }
-
 .search-results-div { margin-top: 15px; }
 .search-results-div.display-none { display: none; }
 
@@ -575,9 +579,7 @@ header img {
   font-size: 16px;
 }
 
-.actors p > span {
-  color: #fff;
-}
+.actors p > span { color: #fff; }
 /* Movie Details Page End */
 
 /*=================================
