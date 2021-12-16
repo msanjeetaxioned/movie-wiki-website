@@ -422,15 +422,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 		modalContent.innerHTML = "";
 		modalContent.innerHTML = `
-			<span class="rank"><small>Popularity: </small>#${data.rank}</span>
+			<span><small>Popularity: </small>#${data.rank}</span>
 			<figure>
 				<img src="${data.image}" alt="${data.title} Image">
 			</figure>
-			<span class="title">${data.title}</span>
-			<span class="year"><small>Year: </small>${data.year}</span>
-			<span class="year"><small>Crew: </small>${data.crew}</span>
-			<span class="imdb-rating"><small>IMDB Rating: </small>${data.imDbRating}</span>
-			<span class="imdb-rating-count"><small>IMDB Rating Count: </small>${data.imDbRatingCount}</span>
+			<span>${data.title}</span>
+			<span><small>Year: </small>${data.year}</span>
+			<span><small>Crew: </small>${data.crew}</span>
+			<span><small>IMDB Rating: </small>${data.imDbRating}</span>
+			<span><small>IMDB Rating Count: </small>${data.imDbRatingCount}</span>
 		`;
 	}
 });
