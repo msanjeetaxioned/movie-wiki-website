@@ -37,9 +37,17 @@ document.addEventListener('DOMContentLoaded', function(event) {
 	let footer = body.querySelector("footer");
 	
 	let modalCloseButton = modal.querySelector(".close-button");
+	let moreInfoButton = modal.querySelector(".movie-details-button > button");
+
+	let clickedMovieId = "";
 
 	modalCloseButton.addEventListener("click", function() {
 		displayOrHideModal(false);
+	});
+
+	moreInfoButton.addEventListener("click", function() {
+		window.sessionStorage.setItem("movie-id", clickedMovieId);
+		window.location.replace("http://127.0.0.1:5500/movie-details.html");
 	});
 
 	getJSONDataOfUpcomingMovies();
@@ -416,10 +424,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		}
 	}
 
-	function changeModalContent(id) {
-		let data = popularMovies[id-1];
+	function changeModalContent(number) {
+		let data = popularMovies[number-1];
 		let modalContent = modal.querySelector(".modal-content");
 
+		clickedMovieId = data.id;
 		modalContent.innerHTML = "";
 		modalContent.innerHTML = `
 			<span><small>Popularity: </small>#${data.rank}</span>
