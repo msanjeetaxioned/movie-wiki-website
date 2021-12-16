@@ -364,7 +364,7 @@ header img {
   height: 100%;
   background: transparent;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   top: 0;
   left: 0;
 }
@@ -377,6 +377,7 @@ header img {
   border: 3px solid #76766f;
   border-radius: 15px;
   position: relative;
+  z-index: 4;
   top: 50%;
   left: 50%;
   background: rgba(36,50,61,1);
