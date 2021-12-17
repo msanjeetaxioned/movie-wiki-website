@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 	moreInfoButton.addEventListener("click", function() {
 		window.sessionStorage.setItem("movie-id", clickedMovieId);
-		window.location.replace("http://127.0.0.1:5500/movie-details.html");
+		window.location.assign("http://127.0.0.1:5500/movie-details.html"); // Used assign for 'Back-button' click
 	});
 
 	getJSONDataOfUpcomingMovies();
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		xhttp.send();
 		xhttp.onload = function() {
 			let response = JSON.parse(this.responseText);
-			if(response.errorMessage == "") {
+			if(!response.errorMessage) {
 				upcomingMovies = response.items;
 				totalUpcomingMovies = upcomingMovies.length;
 				addJSONDataInCarouselAndDots();
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		xhttp.send();
 		xhttp.onload = function() {
 			let response = JSON.parse(this.responseText);
-			if(response.errorMessage == "") {
+			if(!response.errorMessage) {
 				popularMoviesByPopularity = response.items;
 				popularMovies = popularMoviesByPopularity;
 				totalPopularMovies = popularMovies.length;

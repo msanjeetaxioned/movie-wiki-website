@@ -39,15 +39,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		xhttp.send();
 		xhttp.onload = function() {
             let response = JSON.parse(this.responseText);
-            if(response.errorMessage == "") {
+            if(!response.errorMessage) { // Checks if errorMessage is "" or null
                 movieData = response;
+                console.log(movieData);
                 movieDetails.innerHTML = "";
 
                 movieDetails.innerHTML = `
                     <h3>Movie Details</h3>
                     <span><small>Title: </small>${movieData.title}</span>
                     <span><small>Year: </small>${movieData.year}</span>
-                    <span><small>Release Date: </small>${movieData.releaseDate}</span>
+                    <span><small>Release Date: </small>${movieData.releaseDate ? movieData.releaseDate : "-"}</span>
                     <figure>
                         <img src="${movieData.image}" alt="${movieData.title} Promo Poster">
                     </figure>
@@ -69,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 for(let i = 0; i < actorListData.length; i++) {
                     let li = document.createElement("li");
                     li.innerHTML = `
-                        <p>${actorListData[i].name} as <span>${actorListData[i].asCharacter}</span></p>
+                        <p>${actorListData[i].name} as <span>${actorListData[i].asCharacter ? actorListData[i].asCharacter: "-"}</span></p>
                     `;
                     actors.append(li);
                 }
@@ -85,15 +86,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		xhttp.send();
 		xhttp.onload = function() {
             let response = JSON.parse(this.responseText);
-            if(response.errorMessage == "") {
+            if(!response.errorMessage) { // Checks if errorMessage is "" or null
                 searchResults = response.results;
+                console.log(searchResults);
             }
             searchResultsHTML.innerHTML = "";
             
             for(let i = 0; i < searchResults.length; i++) {
                 let li = document.createElement("li");
                 li.innerHTML = `
-                    <span title="${searchResults[i].title}" data-id="${i+1}">${searchResults[i].title} ${searchResults[i].description}</span>
+                    <span title="${searchResults[i].title}" data-id="${i+1}">${searchResults[i].title} ${searchResults[i].description.split(" aka")[0]}</span>
                 `;
                 searchResultsHTML.append(li);
                 let span = li.querySelector("span");
