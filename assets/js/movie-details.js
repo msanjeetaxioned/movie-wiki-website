@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
                     <span><small>Title: </small>${movieData.title}</span>
                     <span><small>Year: </small>${movieData.year}</span>
                     <span><small>Release Date: </small>${movieData.releaseDate ? movieData.releaseDate : "-"}</span>
+                    <span><small>IMDB Rating: </small>${movieData.imDbRating ? movieData.imDbRating : "Movie Not Released"}</span>
+                    <span><small>IMDB Rating Count: </small>${movieData.imDbRatingVotes ? movieData.imDbRatingVotes : 0}</span>
+                    <span><small>Metacritic Rating: </small>${movieData.metacriticRating ? movieData.metacriticRating : "Movie Not Released"}</span>
                     <figure>
                         <img src="${movieData.image}" alt="${movieData.title} Promo Poster">
                     </figure>

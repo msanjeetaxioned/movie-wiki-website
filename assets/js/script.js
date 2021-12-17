@@ -319,9 +319,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 		for(let i = start; i < end; i++) {
 			let li = document.createElement("li");
-			if(popularMovies[i].imDbRating == "") {
-				popularMovies[i].imDbRating = "Not Released";
-			}
 			li.addEventListener("click", function() {
 				displayOrHideModal(true, i+1);
 			});
@@ -333,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 				<div class="info">
 					<span class="title">${popularMovies[i].title}</span>
 					<span class="year"><small>Year: </small>${popularMovies[i].year}</span>
-					<span class="rating"><small>IMDB Rating: </small>${popularMovies[i].imDbRating}</span>
+					<span class="rating"><small>IMDB Rating: </small>${popularMovies[i].imDbRating ? popularMovies[i].imDbRating : "-"}</span>
 				</div>
 			`;
 			ul.append(li);
@@ -391,16 +388,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			}
 			if(x > y) {
 				if(y == 0) {
-					b[sortCriteria] = "Not Released";
+					b[sortCriteria] = "";
 				}
 				return 1;
 			}
 			else {
 				if(x == 0) {
-					a[sortCriteria] = "Not Released";
+					a[sortCriteria] = "";
 				}
 				if(y == 0) {
-					b[sortCriteria] = "Not Released";
+					b[sortCriteria] = "";
 				}
 				return -1;
 			}
@@ -441,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			<span>${data.title}</span>
 			<span><small>Year: </small>${data.year}</span>
 			<span><small>Crew: </small>${data.crew}</span>
-			<span><small>IMDB Rating: </small>${data.imDbRating}</span>
+			<span><small>IMDB Rating: </small>${data.imDbRating ? data.imDbRating : "-"}</span>
 			<span><small>IMDB Rating Count: </small>${data.imDbRatingCount}</span>
 		`;
 	}
