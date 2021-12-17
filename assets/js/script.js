@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 	let clickedMovieId = "";
 
+	let aLinks = body.querySelectorAll("a");
+	removeDefaultBehaviourOfLinks();
+
 	modalCloseButton.addEventListener("click", function() {
 		displayOrHideModal(false);
 	});
@@ -441,5 +444,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			<span><small>IMDB Rating: </small>${data.imDbRating ? data.imDbRating : "-"}</span>
 			<span><small>IMDB Rating Count: </small>${data.imDbRatingCount}</span>
 		`;
+	}
+
+	// Remove going to #FIXME link
+	function removeDefaultBehaviourOfLinks() {
+		for(let a of aLinks) {
+			a.addEventListener("click", function(event) {
+				event.preventDefault();
+			});
+		}
 	}
 });

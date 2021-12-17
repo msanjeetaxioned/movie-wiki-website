@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
     let searchResultsDiv = searchAndResults.querySelector(".search-results-div");
     let searchResultsHTML = searchAndResults.querySelector(".search-results");
 
+    let aLinks = document.querySelectorAll("a");
+	removeDefaultBehaviourOfLinks();
+
     if(sessionStorage.getItem("movie-id")) {
         movieId = sessionStorage.getItem("movie-id");
         getMovieDataAndDisplayIt();
@@ -118,4 +121,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
         document.body.scrollTop = element.offsetTop; // For Safari
         document.documentElement.scrollTop = element.offsetTop; // For Chrome, Firefox, IE and Opera
     }
+
+    // Remove going to #FIXME link
+	function removeDefaultBehaviourOfLinks() {
+		for(let a of aLinks) {
+			a.addEventListener("click", function(event) {
+				event.preventDefault();
+			});
+		}
+	}
 });
