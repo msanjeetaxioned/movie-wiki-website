@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 	moreInfoButton.addEventListener("click", function() {
 		window.sessionStorage.setItem("movie-id", clickedMovieId);
-		window.location.assign("http://127.0.0.1:5500/movie-details.html"); // Used assign for 'Back-button' click
+		window.location.assign("https://axionedstaging.com/trainee/sanjeet-dec-17/movie-details.html"); // Used assign for 'Back-button' click
 	});
 
 	getJSONDataOfUpcomingMovies();
