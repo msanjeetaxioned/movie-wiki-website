@@ -555,17 +555,17 @@ header img {
 .movie-details.display-none { display: none; }
 
 .movie-details > h3 {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   color: #fff;
   font-size: 24px;
   font-weight: bold;
 }
 
 .movie-details > span {
-  margin-bottom: 10px;
   display: block;
   color: #fff;
   font-size: 16px;
+  line-height: 26px;
 }
 
 .movie-details > span:last-child { margin-bottom: 0; }
@@ -575,7 +575,7 @@ header img {
   font-size: 14px;
 }
 
-.movie-details > figure { margin-bottom: 20px; }
+.movie-details > figure { margin: 25px 0; }
 
 .movie-details img {
   max-width: 250px;
@@ -583,12 +583,13 @@ header img {
 }
 
 .movie-details > h4 {
-  margin-bottom: 10px;
+  margin: 25px 0 10px 0;
   color: #76766f;
   font-size: 14px;
   font-weight: bold;
 }
 
+.actors { margin-bottom: 25px; }
 .actors li { margin-bottom: 10px; }
 
 .actors p {
