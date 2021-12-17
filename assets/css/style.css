@@ -334,7 +334,10 @@ header img {
   border-bottom-right-radius: 5px;
   background: rgba(41, 56, 63, 1);
   flex-grow: 1;
+  transition: background 0.3s ease-in-out;
 }
+
+.movies-content > li:hover > .info { background: rgba(41, 56, 63, 0.5); }
 
 .info > span {
   margin-bottom: 5px;
