@@ -51,24 +51,24 @@ document.addEventListener('DOMContentLoaded', function(event) {
                     <h3>Movie Details</h3>
                     <span><small>Title: </small>${movieData.title}</span>
                     <span><small>Year: </small>${movieData.year}</span>
-                    <span><small>Release Date: </small>${movieData.releaseDate ? movieData.releaseDate : "-"}</span>
-                    <span><small>IMDB Rating: </small>${movieData.imDbRating ? movieData.imDbRating : "Not Available"}</span>
-                    <span><small>IMDB Rating Count: </small>${movieData.imDbRatingVotes ? movieData.imDbRatingVotes : "Not Available"}</span>
-                    <span><small>Metacritic Rating: </small>${movieData.metacriticRating ? movieData.metacriticRating : "Not Available"}</span>
+                    <span><small>Release Date: </small>${movieData.releaseDate ? movieData.releaseDate : "NA"}</span>
+                    <span><small>IMDB Rating: </small>${movieData.imDbRating ? movieData.imDbRating : "NA"}</span>
+                    <span><small>IMDB Rating Count: </small>${movieData.imDbRatingVotes ? movieData.imDbRatingVotes : "NA"}</span>
+                    <span><small>Metacritic Rating: </small>${movieData.metacriticRating ? movieData.metacriticRating : "NA"}</span>
                     <figure>
                         <img src="${movieData.image}" alt="${movieData.title} Promo Poster">
                     </figure>
-                    <span><small>Plot: </small>${movieData.plot}</span>
-                    <span><small>Directors: </small>${movieData.directors}</span>
-                    <span><small>Writers: </small>${movieData.writers}s</span>
-                    <span><small>Stars: </small>${movieData.stars}</span>
+                    <span><small>Plot: </small>${movieData.plot ? movieData.plot : "NA"}</span>
+                    <span><small>Directors: </small>${movieData.directors ? movieData.directors : "NA"}</span>
+                    <span><small>Writers: </small>${movieData.writers ? movieData.writers : "NA"}</span>
+                    <span><small>Stars: </small>${movieData.stars ? movieData.stars : "NA"}</span>
                     <h4>Actor List:</h4>
                     <ul class="actors">
                     </ul>
-                    <span><small>Genres: </small>${movieData.genres}</span>
-                    <span><small>Companies: </small>${movieData.companies}</span>
-                    <span><small>Countries: </small>${movieData.countries}</span>
-                    <span><small>Languages: </small>${movieData.languages}</span>
+                    <span><small>Genres: </small>${movieData.genres ? movieData.genres : "NA"}</span>
+                    <span><small>Companies: </small>${movieData.companies ? movieData.companies : "NA"}</span>
+                    <span><small>Countries: </small>${movieData.countries ? movieData.countries: "NA"}</span>
+                    <span><small>Languages: </small>${movieData.languages ? movieData.languages : "NA"}</span>
                 `;
 
                 let actorListData = movieData.actorList;
