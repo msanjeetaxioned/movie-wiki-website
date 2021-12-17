@@ -208,57 +208,57 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		for(let carouselDot of carouselDotsArray) {
 			let span = carouselDot.querySelector("span");
 			span.addEventListener("click", function() {
-					changeDisplayedItem(false, parseInt(this.getAttribute("data-id")));
+				changeDisplayedItem(false, parseInt(this.getAttribute("data-id")));
 			});
 		}
 	}
 	
 	function changeDisplayedItem(onNextPrevClick, number) {
-			liList[currentItem].classList.remove("selected");
-			carouselDotsArray[currentItem-1].classList.remove("selected");
-			if(onNextPrevClick) {
-				if(currentItem == 1 && number == -1) {
-					currentItem = totalUpcomingMovies;
-					horizontalScrollToElement(ul, liList[0].offsetLeft, 400, true);
-				}
-				else if((currentItem == totalUpcomingMovies) && (number == 1)) {
-					currentItem = 1;
-					horizontalScrollToElement(ul, liList[liList.length-1].offsetLeft, 400, true);
-				}
-				else {
-					currentItem = currentItem + number;
-					horizontalScrollToElement(ul, liList[currentItem].offsetLeft, 400);
-				}
+		liList[currentItem].classList.remove("selected");
+		carouselDotsArray[currentItem-1].classList.remove("selected");
+		if(onNextPrevClick) {
+			if(currentItem == 1 && number == -1) {
+				currentItem = totalUpcomingMovies;
+				horizontalScrollToElement(ul, liList[0].offsetLeft, 400, true);
+			}
+			else if((currentItem == totalUpcomingMovies) && (number == 1)) {
+				currentItem = 1;
+				horizontalScrollToElement(ul, liList[liList.length-1].offsetLeft, 400, true);
 			}
 			else {
-				currentItem = number;
+				currentItem = currentItem + number;
 				horizontalScrollToElement(ul, liList[currentItem].offsetLeft, 400);
 			}
-			liList[currentItem].classList.add("selected");
-			carouselDotsArray[currentItem-1].classList.add("selected");
+		}
+		else {
+			currentItem = number;
+			horizontalScrollToElement(ul, liList[currentItem].offsetLeft, 400);
+		}
+		liList[currentItem].classList.add("selected");
+		carouselDotsArray[currentItem-1].classList.add("selected");
 	}
 
 	function horizontalScrollToElement(scrollLayer, destination, duration, callback) {
-			if (duration <= 0) {
+		if (duration <= 0) {
+			if(callback) {
+				ul.scrollLeft = liList[currentItem].offsetLeft;
+			}
+			return;
+		}
+		const difference = destination - scrollLayer.scrollLeft;
+		const perTick = (difference / duration) * 10;
+
+		let timeout = setTimeout(function() {
+			scrollLayer.scrollLeft = scrollLayer.scrollLeft + perTick;
+			if (scrollLayer.scrollLeft === destination) {
+				clearTimeout(timeout);
 				if(callback) {
-						ul.scrollLeft = liList[currentItem].offsetLeft;
+					ul.scrollLeft = liList[currentItem].offsetLeft;
 				}
 				return;
 			}
-			const difference = destination - scrollLayer.scrollLeft;
-			const perTick = (difference / duration) * 10;
-	
-			let timeout = setTimeout(function() {
-				scrollLayer.scrollLeft = scrollLayer.scrollLeft + perTick;
-				if (scrollLayer.scrollLeft === destination) {
-						clearTimeout(timeout);
-						if(callback) {
-								ul.scrollLeft = liList[currentItem].offsetLeft;
-						}
-						return;
-				}
-				horizontalScrollToElement(scrollLayer, destination, duration - 10, callback);
-			}, 10);
+			horizontalScrollToElement(scrollLayer, destination, duration - 10, callback);
+		}, 10);
 	}
 
 	function addEventListenersForPopularMovies() {
