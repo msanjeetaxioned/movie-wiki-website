@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                     actors.append(li);
                 }
 
+                document.title = `Movie Wiki: ${movieData.title} (${movieData.year})`;
                 movieDetails.classList.remove("display-none");
                 scrollToElement(movieDetails);
             }

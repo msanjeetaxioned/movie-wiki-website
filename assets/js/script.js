@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function(event) {
+	const imdbPathForUpcomingMovies = "https://imdb-api.com/en/API/ComingSoon/k_cjzbh809";
+	const imdbPathForMostPopularMovies = "https://imdb-api.com/en/API/MostPopularMovies/k_cjzbh809";
+
+	const testLinkForUpcomingMovies = "assets/json/upcoming.json";
+	const testLinkForMostPopularMovies = "assets/json/most-popular.json";
+
 	let upcomingMovies = [];
 	let totalUpcomingMovies = 0;
 	let currentItem = 1;
@@ -58,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 	function getJSONDataOfUpcomingMovies() {
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("GET", "assets/json/upcoming.json");
+		xhttp.open("GET", imdbPathForUpcomingMovies);
 		xhttp.send();
 		xhttp.onload = function() {
 			let response = JSON.parse(this.responseText);
@@ -73,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 	function getJSONDataOfMostPopularMovies() {
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("GET", "assets/json/most-popular.json");
+		xhttp.open("GET", imdbPathForMostPopularMovies);
 		xhttp.send();
 		xhttp.onload = function() {
 			let response = JSON.parse(this.responseText);
