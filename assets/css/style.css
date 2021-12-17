@@ -306,11 +306,26 @@ header img {
   background: rgba(41, 56, 63, 0.7);
   padding: 10px 5px;
   position: absolute;
+  z-index: 2;
   top: 0;
   left: 0;
   color: #fff;
   font-size: 14px;
   font-weight: bold;
+}
+
+.movies-content > li > figure { overflow: hidden; }
+
+.movies-content > li img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.movies-content > li:hover img { 
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .movies-content > li > .info {
