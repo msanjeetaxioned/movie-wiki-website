@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 }
 
                 movieDetails.classList.remove("display-none");
+                scrollToElement(movieDetails);
             }
 		}
     }
@@ -111,5 +112,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
             searchResultsDiv.classList.remove("display-none");
         }
+    }
+
+    function scrollToElement(element) {
+        document.body.scrollTop = element.offsetTop; // For Safari
+        document.documentElement.scrollTop = element.offsetTop; // For Chrome, Firefox, IE and Opera
     }
 });
