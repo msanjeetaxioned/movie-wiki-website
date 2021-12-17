@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                     <span><small>IMDB Rating Count: </small>${movieData.imDbRatingVotes ? movieData.imDbRatingVotes : "NA"}</span>
                     <span><small>Metacritic Rating: </small>${movieData.metacriticRating ? movieData.metacriticRating : "NA"}</span>
                     <figure>
-                        <img src="${movieData.image}" alt="${movieData.title} Promo Poster">
+                        <img src="${movieData.image ? movieData.image : "assets/images/default-movie.png"}" alt="${movieData.title} Promo Poster">
                     </figure>
                     <span><small>Plot: </small>${movieData.plot ? movieData.plot : "NA"}</span>
                     <span><small>Directors: </small>${movieData.directors ? movieData.directors : "NA"}</span>
