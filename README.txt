@@ -16,7 +16,7 @@ Note:
 Project Details:
     The task has 2 Pages.
     1st Page:
-    - Has a 'Coming Soon Movies' Carousel at the top. It contains the Movie image and basic related info eg. Movie-name & it's release date. The Carousel can be scrolled with 'Left' & 'Right' arrow keys on keyboard as well as can be scrolled by using Mouse(Mouse Drag scroll-left or right) and will adjust itself on Browser resizing.
+    - Has a 'Coming Soon Movies' Carousel at the top. It contains the Movie image and basic related info (eg. Movie-name & it's release date). The Carousel can be scrolled with 'Left' & 'Right' Arrow keys on a keyboard as well as can be scrolled by using a Mouse(Mouse Drag scroll-left or right) and supports Browser Resizing.
     - The 'Popular Movies' has the 'Most Popular Movies' from IMDB API. The result is displayed on 4 pages(Pagination). 25 Movie titles per page. The 'Movie List' is also sortable by Movie-Name, Year of release and IMDB rating.
     - On Clicking individual 'Movie titles' a Modal is opened which gives a bit more info. about the clicked movie.
     - The Modal can be closed on clicking the 'Close' button in the Top-Right corner.
