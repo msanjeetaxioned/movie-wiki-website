@@ -13,11 +13,10 @@ Note:
     4. If you 'Search' a movie in the 2nd page an API request is sent. This response sometimes takes a bit of time so please be patient.
     5. If you 'Click' on one of the returned Movies from the previous search then an API request is made to get details of the clicked movie (Similar to API request made in 3rd point).
 
-
 Project Details:
     The task has 2 Pages.
     1st Page:
-    - Has a 'Upcoming Movies' Carousel at the top. It contains the Movie image and basic related info eg. Movie-name &  it's release date. The Carousel can be scrolled with 'Left' & 'Right' arrow keys on keyboard as well as can be scrolled by using Mouse(Mouse Drag scroll left or right) and will adjust itself on Browser resizing.
+    - Has a 'Coming Soon Movies' Carousel at the top. It contains the Movie image and basic related info eg. Movie-name & it's release date. The Carousel can be scrolled with 'Left' & 'Right' arrow keys on keyboard as well as can be scrolled by using Mouse(Mouse Drag scroll-left or right) and will adjust itself on Browser resizing.
     - The 'Popular Movies' has the 'Most Popular Movies' from IMDB API. The result is displayed on 4 pages(Pagination). 25 Movie titles per page. The 'Movie List' is also sortable by Movie-Name, Year of release and IMDB rating.
     - On Clicking individual 'Movie titles' a Modal is opened which gives a bit more info. about the clicked movie.
     - The Modal can be closed on clicking the 'Close' button in the Top-Right corner.
